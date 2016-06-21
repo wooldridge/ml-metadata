@@ -4,7 +4,8 @@
   "description": "Metadata values for MarkLogic",
   "main": "index.js",
   "dependencies": {
-    "marklogic": "^1.0.5"
+    "marklogic": "^1.0.5",
+    "request-promise": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {

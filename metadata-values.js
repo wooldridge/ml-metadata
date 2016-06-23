@@ -11,13 +11,12 @@ describe('metadata-values', function() {
     }
   };
 
-  var uri1 =  'http://' + config.host + ':' + config.restSetup["rest-api"]["port"];
-      uri1 += '/v1/documents?uri=/havana.json&category=metadata-values';
+  var uri =  'http://' + config.host + ':' + config.restSetup["rest-api"]["port"] + '/v1/documents';
 
   it('should PUT a metadata value to an existing document', function(done) {
     var options = {
       method: 'PUT',
-      uri: uri1,
+      uri: uri + '?uri=/havana.json&category=metadata-values',
       body: keyvalue1,
       json: true,
       headers: {
@@ -34,9 +33,6 @@ describe('metadata-values', function() {
       })
       .catch(done);
   });
-
-  var uri2 =  'http://' + config.host + ':' + config.restSetup["rest-api"]["port"];
-      uri2 += '/v1/documents';
 
   it('should POST a new document with a metadata value', function(done) {
 
@@ -68,7 +64,7 @@ describe('metadata-values', function() {
     }).on('end', function() {
       var options = {
         method: 'POST',
-        uri: uri2,
+        uri: uri,
         headers: {
           'Content-type': 'multipart/mixed; boundary=BOUNDARY',
           'Accept': 'application/json'
@@ -85,18 +81,14 @@ describe('metadata-values', function() {
           done();
         })
         .catch(done);
-
     })
 
   });
 
-  var uri3 =  'http://' + config.host + ':' + config.restSetup["rest-api"]["port"];
-      uri3 += '/v1/documents?uri=/havana.json&category=metadata-values';
-
   it('should GET metadata values for an existing document', function(done) {
     var options = {
       method: 'GET',
-      uri: uri3,
+      uri: uri + '?uri=/havana.json&category=metadata-values',
       json: true,
       headers: {
         'Content-Type': 'application/json',
@@ -114,13 +106,10 @@ describe('metadata-values', function() {
       .catch(done);
   });
 
-  var uri4 =  'http://' + config.host + ':' + config.restSetup["rest-api"]["port"];
-      uri4 += '/v1/documents?uri=/havana.json&category=metadata-values';
-
   it('should DELETE metadata values from an existing document', function(done) {
       var options = {
       method: 'DELETE',
-      uri: uri4,
+      uri: uri + '?uri=/havana.json&category=metadata-values',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -133,7 +122,7 @@ describe('metadata-values', function() {
         response.statusCode.should.equal(204);
         var options = {
           method: 'GET',
-          uri: uri3,
+          uri: uri + '?uri=/havana.json&category=metadata-values',
           json: true,
           headers: {
             'Content-Type': 'application/json',

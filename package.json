@@ -4,7 +4,7 @@
   "description": "Metadata values for MarkLogic",
   "main": "index.js",
   "dependencies": {
-    "marklogic": "^1.0.5",
+    "marklogic": "git://github.com/wooldridge/node-client-api.git#issue/281",
     "mocha": "^2.5.3",
     "multipart-stream": "^2.0.1",
     "request-promise": "^3.0.0",

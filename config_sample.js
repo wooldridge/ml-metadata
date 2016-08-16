@@ -9,7 +9,7 @@ config.server = {
 };
 
 config.database = {
-  "name": "ml-geo-values",
+  "name": "ml-metadata",
   "port": 8564
 };
 
